@@ -7,6 +7,7 @@ import { Modal } from "./Modal";
 export function Home() {
   const [recipes, setRecipes] = useState([]);
   const [isRecipesShowVisible, setIsRecipesShowVisible] = useState(false);
+  const [currentRecipe, setCurrentRecipe] = useState({});
 
   const handleIndexRecipes = () => {
     console.log("Going to get all recipes...");
@@ -16,8 +17,9 @@ export function Home() {
     });
   };
 
-  const handleShowRecipe = () => {
+  const handleShowRecipe = (recipe) => {
     setIsRecipesShowVisible(true);
+    setCurrentRecipe(recipe);
   };
 
   const handleHideRecipe = () => {
@@ -28,11 +30,13 @@ export function Home() {
 
   return (
     <div>
-      <button onClick={handleShowRecipe}>Show modal</button>
       <RecipesNew />
-      <RecipesIndex recipes={recipes} />
+      <RecipesIndex recipes={recipes} onSelectRecipe={handleShowRecipe} />
       <Modal show={isRecipesShowVisible} onClose={handleHideRecipe}>
-        <p>TEST</p>
+        <p>Title: {currentRecipe.title}</p>
+        <p>Chef: {currentRecipe.chef}</p>
+        <p>Ingredients: {currentRecipe.ingredients}</p>
+        <p>Directions: {currentRecipe.directions}</p>
       </Modal>
     </div>
   );
