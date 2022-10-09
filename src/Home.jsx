@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { RecipesIndex } from "./RecipesIndex";
 import { RecipesNew } from "./RecipesNew";
+import { RecipesShow } from "./RecipesShow";
 import { Modal } from "./Modal";
 
 export function Home() {
@@ -33,10 +34,7 @@ export function Home() {
       <RecipesNew />
       <RecipesIndex recipes={recipes} onSelectRecipe={handleShowRecipe} />
       <Modal show={isRecipesShowVisible} onClose={handleHideRecipe}>
-        <p>Title: {currentRecipe.title}</p>
-        <p>Chef: {currentRecipe.chef}</p>
-        <p>Ingredients: {currentRecipe.ingredients}</p>
-        <p>Directions: {currentRecipe.directions}</p>
+        <RecipesShow recipe={currentRecipe} />
       </Modal>
     </div>
   );
