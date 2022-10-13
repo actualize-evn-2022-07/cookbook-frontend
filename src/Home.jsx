@@ -30,7 +30,7 @@ export function Home() {
   useEffect(handleIndexRecipes, []);
 
   return (
-    <div>
+    <div className="container">
       <RecipesNew />
       <RecipesIndex recipes={recipes} onSelectRecipe={handleShowRecipe} />
       <Modal show={isRecipesShowVisible} onClose={handleHideRecipe}>
