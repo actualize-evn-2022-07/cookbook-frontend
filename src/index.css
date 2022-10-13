@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
 html {
   scroll-behavior: smooth;
 }
@@ -10,4 +12,9 @@ html {
 .card img {
   height: 300px;
   object-fit: cover;
+}
+
+.navbar-brand {
+  font-family: 'Creepster', cursive;
+  font-size: 50px !important;
 }

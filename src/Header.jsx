@@ -4,7 +4,7 @@ export function Header() {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            Navbar
+            Cookr
           </a>
           <button
             className="navbar-toggler"
