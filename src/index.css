@@ -1,7 +1,13 @@
-#recipes-index img {
-  width: 300px;
-}
-
 html {
   scroll-behavior: smooth;
+}
+
+#root {
+  font-family: Futura;
+  background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/wood_pattern.png');
+}
+
+.card img {
+  height: 300px;
+  object-fit: cover;
 }
