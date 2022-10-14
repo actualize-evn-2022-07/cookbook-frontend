@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { RecipesIndex } from "./RecipesIndex";
 import { RecipesNew } from "./RecipesNew";
 import { RecipesShow } from "./RecipesShow";
+import { Signup } from "./Signup";
 import { Modal } from "./Modal";
 
 export function Home() {
@@ -31,6 +32,7 @@ export function Home() {
 
   return (
     <div className="container">
+      <Signup />
       <RecipesNew />
       <RecipesIndex recipes={recipes} onSelectRecipe={handleShowRecipe} />
       <Modal show={isRecipesShowVisible} onClose={handleHideRecipe}>
