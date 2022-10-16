@@ -36,6 +36,22 @@ export function Home() {
     });
   };
 
+  const handleUpdateRecipe = (id, params) => {
+    axios.patch(`http://localhost:3000/recipes/${id}.json`, params).then((response) => {
+      console.log("Updated recipe", response);
+      setIsRecipesShowVisible(false);
+      setRecipes(
+        recipes.map((recipe) => {
+          if (recipe.id === id) {
+            return response.data;
+          } else {
+            return recipe;
+          }
+        })
+      );
+    });
+  };
+
   useEffect(handleIndexRecipes, []);
 
   return (
@@ -45,7 +61,7 @@ export function Home() {
       <RecipesNew onCreateRecipe={handleCreateRecipe} />
       <RecipesIndex recipes={recipes} onSelectRecipe={handleShowRecipe} />
       <Modal show={isRecipesShowVisible} onClose={handleHideRecipe}>
-        <RecipesShow recipe={currentRecipe} />
+        <RecipesShow recipe={currentRecipe} onUpdateRecipe={handleUpdateRecipe} />
       </Modal>
     </div>
   );

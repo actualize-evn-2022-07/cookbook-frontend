@@ -11,7 +11,7 @@ export function RecipesIndex(props) {
               <div className="card-body">
                 <h5 className="card-title">{recipe.title}</h5>
                 <p className="card-text">Chef: {recipe.chef}</p>
-                <a href="#" className="btn btn-primary" onClick={() => props.onSelectRecipe(recipe)}>
+                <a className="btn btn-primary" onClick={() => props.onSelectRecipe(recipe)}>
                   More info
                 </a>
               </div>
