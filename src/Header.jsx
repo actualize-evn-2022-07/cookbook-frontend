@@ -47,7 +47,7 @@ export function Header() {
                 </a>
               </li>
               <li className="nav-item">
-                <LogoutLink />
+                <LogoutLink className="nav-link" />
               </li>
             </ul>
             <form className="d-flex" role="search">
