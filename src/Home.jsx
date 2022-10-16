@@ -52,6 +52,15 @@ export function Home() {
     });
   };
 
+  const handleDestroyRecipe = (recipe) => {
+    console.log("You wanna destroy this recipe: ", recipe);
+    axios.delete(`http://localhost:3000/recipes/${recipe.id}.json`).then((response) => {
+      console.log("Recipe was destroyed!");
+      setIsRecipesShowVisible(false);
+      setRecipes(recipes.filter((r) => r.id !== recipe.id));
+    });
+  };
+
   useEffect(handleIndexRecipes, []);
 
   return (
@@ -61,7 +70,7 @@ export function Home() {
       <RecipesNew onCreateRecipe={handleCreateRecipe} />
       <RecipesIndex recipes={recipes} onSelectRecipe={handleShowRecipe} />
       <Modal show={isRecipesShowVisible} onClose={handleHideRecipe}>
-        <RecipesShow recipe={currentRecipe} onUpdateRecipe={handleUpdateRecipe} />
+        <RecipesShow recipe={currentRecipe} onUpdateRecipe={handleUpdateRecipe} onDestroyRecipe={handleDestroyRecipe} />
       </Modal>
     </div>
   );
