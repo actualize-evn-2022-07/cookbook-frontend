@@ -29,13 +29,20 @@ export function Home() {
     setIsRecipesShowVisible(false);
   };
 
+  const handleCreateRecipe = (params) => {
+    axios.post("http://localhost:3000/recipes.json", params).then((response) => {
+      console.log("Created recipes", response);
+      setRecipes([...recipes, response.data]); // equivalent to `recipes.push(response.data);`
+    });
+  };
+
   useEffect(handleIndexRecipes, []);
 
   return (
     <div className="container">
       <Signup />
       <Login />
-      <RecipesNew />
+      <RecipesNew onCreateRecipe={handleCreateRecipe} />
       <RecipesIndex recipes={recipes} onSelectRecipe={handleShowRecipe} />
       <Modal show={isRecipesShowVisible} onClose={handleHideRecipe}>
         <RecipesShow recipe={currentRecipe} />
