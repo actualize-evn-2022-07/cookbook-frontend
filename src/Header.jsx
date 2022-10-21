@@ -33,9 +33,9 @@ export function Header() {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#recipes-new">
+                <Link className="nav-link" to="/recipes/new">
                   New recipes
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/about">

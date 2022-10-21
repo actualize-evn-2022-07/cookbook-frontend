@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { RecipesIndex } from "./RecipesIndex";
-import { RecipesNew } from "./RecipesNew";
 import { RecipesShow } from "./RecipesShow";
 import { Modal } from "./Modal";
 
@@ -25,13 +24,6 @@ export function Home() {
 
   const handleHideRecipe = () => {
     setIsRecipesShowVisible(false);
-  };
-
-  const handleCreateRecipe = (params) => {
-    axios.post("http://localhost:3000/recipes.json", params).then((response) => {
-      console.log("Created recipes", response);
-      setRecipes([...recipes, response.data]); // equivalent to `recipes.push(response.data);`
-    });
   };
 
   const handleUpdateRecipe = (id, params) => {
@@ -63,7 +55,6 @@ export function Home() {
 
   return (
     <div className="container">
-      <RecipesNew onCreateRecipe={handleCreateRecipe} />
       <RecipesIndex recipes={recipes} onSelectRecipe={handleShowRecipe} />
       <Modal show={isRecipesShowVisible} onClose={handleHideRecipe}>
         <RecipesShow recipe={currentRecipe} onUpdateRecipe={handleUpdateRecipe} onDestroyRecipe={handleDestroyRecipe} />
