@@ -7,7 +7,12 @@ export function RecipesIndex(props) {
     <div id="recipes-index">
       <h1>All recipes</h1>
       Search filter:{" "}
-      <input value={searchFilter} onChange={(event) => setSearchFilter(event.target.value)} type="text" />
+      <input value={searchFilter} onChange={(event) => setSearchFilter(event.target.value)} type="text" list="titles" />
+      <datalist id="titles">
+        {props.recipes.map((recipe) => (
+          <option key={recipe.id}>{recipe.title}</option>
+        ))}
+      </datalist>
       <div className="row">
         {props.recipes
           .filter((recipe) => recipe.title.toLowerCase().includes(searchFilter.toLowerCase()))
