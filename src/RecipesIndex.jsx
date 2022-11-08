@@ -24,7 +24,10 @@ export function RecipesIndex(props) {
                   <h5 className="card-title">{recipe.title}</h5>
                   <p className="card-text">Chef: {recipe.chef}</p>
                   <a className="btn btn-primary" onClick={() => props.onSelectRecipe(recipe)}>
-                    More info
+                    More info modal
+                  </a>
+                  <a className="btn btn-primary" href={`/recipes/${recipe.id}`}>
+                    Go to show page
                   </a>
                 </div>
               </div>
